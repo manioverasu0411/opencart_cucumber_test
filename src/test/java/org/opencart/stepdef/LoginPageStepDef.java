@@ -12,6 +12,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
+import java.time.Duration;
+
 public class LoginPageStepDef {
 
     private WebDriver driver;
@@ -31,6 +33,8 @@ public class LoginPageStepDef {
 
     @Given("I am on OpenCart Login Page")
     public void i_am_on_open_cart_login_page() {
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
         loginPage = new LoginPage(driver);
     }
